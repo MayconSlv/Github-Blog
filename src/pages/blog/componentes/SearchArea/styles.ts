@@ -32,9 +32,5 @@ export const SearchAreaForm = styled.form`
     &::placeholder {
       color: ${({theme}) => theme.colors['base-label']};
     }
-
-    &:active {
-      border-color: ${({theme}) => theme.colors['brand-blue']};
-    }
   }
 `
