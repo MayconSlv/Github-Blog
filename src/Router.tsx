@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { Blog } from "./pages/blog";
 import { DeafultLayout } from "./layouts/DefultLayout";
-import { Posts } from "./pages/posts";
+import { Post } from "./pages/Post";
 
 export function Router () {
   return (
     <Routes>
       <Route path="/" element={<DeafultLayout />}>
         <Route path="/" element={<Blog />} />
-        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts" element={<Post />} />
       </Route>
     </Routes>
   )
