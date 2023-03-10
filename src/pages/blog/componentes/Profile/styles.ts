@@ -9,6 +9,8 @@ export const ProfileContainer = styled.section`
   background: ${({theme}) => theme.colors['base-profile']};
   display: flex;
   gap: 3.2rem;
+
+  margin-top: -8rem;
 `
 
 export const ProfilePicture = styled.img`

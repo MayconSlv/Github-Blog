@@ -1,4 +1,4 @@
-import { Profile } from "./componentes";
+import { Profile } from "./componentes/Profile";
 
 export function Blog() {
   return (

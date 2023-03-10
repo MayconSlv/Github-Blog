@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProfileContainer, ProfileDetails, ProfilePicture } from "./styles";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faBuilding, faUserGroup } from "@fortawesome/free-solid-svg-icons";
-import { ExternalLink } from "../../../components/ExternalLink";
+import { ExternalLink } from "../../../../components/ExternalLink";
 
 export function Profile () {
   return (
