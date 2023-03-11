@@ -14,21 +14,6 @@ export const PostInfoContainer = styled.section`
   header {
     display: flex;
     justify-content: space-between;
-
-    a {
-      font-size: ${({theme}) => theme.textSizes['components-link']};
-      font-weight: 700;
-      color: ${({theme}) => theme.colors['brand-blue']};
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      border-bottom: 1px solid transparent;
-
-      &:hover {
-        transition: 0.2s;
-        border-color: ${({theme}) => theme.colors['brand-blue']};
-      }
-    }
   }
 
   h1 {

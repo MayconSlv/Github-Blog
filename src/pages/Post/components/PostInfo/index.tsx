@@ -9,10 +9,11 @@ export function PostInfo() {
   return (
     <PostInfoContainer>
       <header>
-        <NavLink to="/">
-          <FontAwesomeIcon icon={faChevronLeft}/>  
-          VOLTAR
-        </NavLink>
+        <ExternalLink 
+          text="VOLTAR" 
+          icon={<FontAwesomeIcon icon={faChevronLeft} />} 
+          variant="iconLeft"
+        />
         <ExternalLink text="VER NO GITHUB" href="#" /> 
       </header>
 

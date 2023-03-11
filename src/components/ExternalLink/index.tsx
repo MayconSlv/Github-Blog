@@ -1,17 +1,19 @@
 import { ExternalLinkContainer } from "./styles"
-import { ComponentProps } from 'react'
+import { ComponentProps, ReactNode } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
 type ExternalLinkProps = ComponentProps<typeof ExternalLinkContainer> & {
   text: string
+  icon?: ReactNode
+  variant?: "iconLeft"
 }
  
-export function ExternalLink ({ text, ...rest }: ExternalLinkProps) {
+export function ExternalLink ({ text, icon, ...rest }: ExternalLinkProps) {
   return (
     <ExternalLinkContainer {...rest}>
       {text}
-      <FontAwesomeIcon icon={faUpRightFromSquare} />
+      {icon ?? <FontAwesomeIcon icon={faUpRightFromSquare} />}
     </ExternalLinkContainer>
   )
 }
