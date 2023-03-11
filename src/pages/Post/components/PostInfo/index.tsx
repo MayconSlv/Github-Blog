@@ -3,9 +3,14 @@ import { ExternalLink } from "../../../../components/ExternalLink";
 import { PostInfoContainer } from "./styles";
 import { faCalendarDay, faChevronLeft, faComment } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function PostInfo() {
+  const navigate = useNavigate()
+  function goBack() {
+    navigate(-1)
+  }
+
   return (
     <PostInfoContainer>
       <header>
@@ -13,6 +18,7 @@ export function PostInfo() {
           text="VOLTAR" 
           icon={<FontAwesomeIcon icon={faChevronLeft} />} 
           variant="iconLeft"
+          onClick={goBack}
         />
         <ExternalLink text="VER NO GITHUB" href="#" /> 
       </header>
