@@ -8,16 +8,26 @@ import { api } from "../../lib/axios";
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const reponame = import.meta.env.VITE_GITHUB_REPONAME
 
-interface IPost {
+export interface IPost {
   title: string
+  body: string
+  created_at: string
+  number: number
+  html_url: string
+  comments: string
+  user: {
+    login: string
+  }
 }
 
 export function Blog() {
   const [posts, setPosts] = useState<IPost[]>([])
+  const [isLoading, setIsloading] = useState(true)
 
   const getPosts = useCallback(
     async (query: string = "") => {
       try {
+        setIsloading(true)
         const response = await api.get(
           `/search/issues?q=${query}%20repo:${username}/${reponame}`
           )
@@ -25,7 +35,7 @@ export function Blog() {
           console.log(response.data)
           setPosts(response.data.items)
       } finally {
-
+        setIsloading(false)
       }
   }, [posts])
 
@@ -38,10 +48,9 @@ export function Blog() {
       <Profile />
       <SearchArea />
       <PostListContainer>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {posts.map((post) => (
+          <Post key={post.number} post={post}/>
+        ) )}
       </PostListContainer>
     </>
   )
