@@ -4,6 +4,7 @@ import { Profile } from "./componentes/Profile";
 import { SearchArea } from "./componentes/SearchArea";
 import { PostListContainer } from "./styles";
 import { api } from "../../lib/axios";
+import { Spinner } from "../../components/Spinner";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const reponame = import.meta.env.VITE_GITHUB_REPONAME
