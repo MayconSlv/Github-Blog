@@ -48,9 +48,14 @@ export function Blog() {
       <Profile />
       <SearchArea getPosts={getPosts} postsLenght={posts.length}/>
       <PostListContainer>
-        {posts.map((post) => (
-          <Post key={post.number} post={post}/>
-        ) )}
+        {isLoading ? <Spinner /> : (
+          <>
+             {posts.map((post) => (
+                <Post key={post.number} post={post}/>
+                ) 
+              )}
+          </>
+        )}
       </PostListContainer>
     </>
   )

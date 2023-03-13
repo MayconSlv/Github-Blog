@@ -31,7 +31,7 @@ export function Profile () {
 
       setProfileData(response.data)
     } finally {
-      // setIsLoading(false)
+      setIsLoading(false)
     }
   }, [profileData])
 
