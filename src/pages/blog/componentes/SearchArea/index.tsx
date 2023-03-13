@@ -3,19 +3,23 @@ import * as z from 'zod'
 import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 
+interface SearchInputProps {
+  getPosts: (query?: string) => Promise<void>
+}
+
 const searchFormAreaSchema = z.object({
   query: z.string()
 })
 
 type SearchFormInput = z.infer<typeof searchFormAreaSchema>
 
-export function SearchArea() {
+export function SearchArea({ getPosts }: SearchInputProps) {
   const { register, handleSubmit } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormAreaSchema)
   })
 
-  function handleSearchPost (data: SearchFormInput) {
-    console.log(data)
+  async function handleSearchPost (data: SearchFormInput) {
+    await getPosts(data.query)
   }
 
   return (
