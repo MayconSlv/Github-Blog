@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 
 interface SearchInputProps {
+  postsLenght: number
   getPosts: (query?: string) => Promise<void>
 }
 
@@ -13,7 +14,7 @@ const searchFormAreaSchema = z.object({
 
 type SearchFormInput = z.infer<typeof searchFormAreaSchema>
 
-export function SearchArea({ getPosts }: SearchInputProps) {
+export function SearchArea({ postsLenght, getPosts }: SearchInputProps) {
   const { register, handleSubmit } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormAreaSchema)
   })
@@ -26,7 +27,7 @@ export function SearchArea({ getPosts }: SearchInputProps) {
     <SearchAreaForm onSubmit={handleSubmit(handleSearchPost)}>
       <header>
         <h3>Publicações</h3>
-        <span>6 publicações</span>
+        <span>{postsLenght} publicações</span>
       </header>
       <input type="text" placeholder="Buscar conteúdo" {...register('query')} />
     </SearchAreaForm>
