@@ -43,25 +43,25 @@ export function Profile () {
       <ProfilePicture src="https://github.com/MayconSlv.png" />
       <ProfileDetails>
         <header>
-          <h1>Maycon Silva</h1>
-          <ExternalLink text="GITHUB" href="#"/>
+          <h1>{profileData.name}</h1>
+          <ExternalLink text="GITHUB" href={profileData.html_url} target="_blank" />
         </header>
-        <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.
-        </p>
+        <p>{profileData.bio}</p>
 
         <ul>
           <li>
             <FontAwesomeIcon icon={faGithub} />
-            Maycon Silva
+            {profileData.login}
           </li>
-          <li>
+          {profileData?.company && (
+            <li>
             <FontAwesomeIcon icon={faBuilding} />
-            ProgramadoresDoAmanha
+            {profileData.company}
           </li>
+          )}
           <li>
             <FontAwesomeIcon icon={faUserGroup}/>
-            32 seguidores
+            {profileData.followers} seguidores
           </li>
         </ul>
       </ProfileDetails>
