@@ -8,7 +8,7 @@ const username = import.meta.env.VITE_GITHUB_USERNAME
 const reponame = import.meta.env.VITE_GITHUB_REPONAME
 
 export function Post() {
-  const [posts, setPosts] = useState({} as IPost)
+  const [posts, setPosts] = useState<IPost>({} as IPost)
   const [isLoading, setIsLoading] = useState(true)
 
   const { id } = useParams()
@@ -30,7 +30,7 @@ export function Post() {
 
   return (
     <>
-      <PostInfo />
+      <PostInfo posts={posts} isLoading={isLoading} />
     </>
   )
 }
