@@ -3,6 +3,7 @@ import { PostInfo } from "./components/PostInfo";
 import { api } from "../../lib/axios";
 import { IPost } from "../blog";
 import { useParams } from "react-router-dom";
+import { PostContent } from "./components/PostContent";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const reponame = import.meta.env.VITE_GITHUB_REPONAME
@@ -31,6 +32,7 @@ export function Post() {
   return (
     <>
       <PostInfo posts={posts} isLoading={isLoading} />
+      {!isLoading && <PostContent content={posts.body} />}
     </>
   )
 }
